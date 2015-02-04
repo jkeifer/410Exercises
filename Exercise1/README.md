@@ -5,7 +5,7 @@ for GEOG 410/510 winter term 2015
 
 **Instructions**
 
-THe first purpose of this exercise is to provide an example of
+The first purpose of this exercise is to provide an example of
 a simple script that uses arcpy cursors and geometry objects.
 To that end, a PDF of such a python script is provided.
 However, while the logic and program flow is correct and complete,
