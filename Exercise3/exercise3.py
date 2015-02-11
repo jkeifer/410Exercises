@@ -92,6 +92,8 @@ def add_spatial_reference_to_layer(workspace_path, layer_name, spatial_ref):
     """
     """
     #
+    spatial_ref.MorphToESRI()
+    #
     with open(os.path.join(workspace_path, layer_name) + ".prj", 'w') as outprj:
         #
         outprj.write(spatial_ref.ExportToWkt())
