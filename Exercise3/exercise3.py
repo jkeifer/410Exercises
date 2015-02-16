@@ -22,7 +22,7 @@ import datetime
 import argparse
 from osgeo import ogr, osr
 
-ogr.UseExceptions
+ogr.UseExceptions()
 
 
 # ********** GLOBAL CONSTANTS **********
@@ -88,9 +88,13 @@ def check_for_and_delete_existing_layer(open_workspace, existing_layer_name):
     return False
 
 
-def add_spatial_reference_to_layer(workspace_path, layer_name, spatial_ref):
+# Note: you do not need to include the following function in your exercise;
+# it became redundant by the optional srs argument to CreatLayer in the
+# create_new_layer function. I merely include it here for reference/example.
+def add_spatial_reference_to_layer(workspace_path, layer_name, spatial_ref_EPSG):
     """
     """
+    spatial_ref = create_spatial_ref_from_EPSG(spatial_ref_EPSG)
     #
     spatial_ref.MorphToESRI()
     #
@@ -107,7 +111,8 @@ def create_new_layer(open_workspace, out_layer_name, geometry_type,
     check_for_and_delete_existing_layer(open_workspace, out_layer_name)
     #
     out_layer = open_workspace.CreateLayer(out_layer_name,
-                                           geom_type=geometry_type)
+                                           geom_type=geometry_type,
+                                           srs=spatial_ref)
 
     #
     if not out_layer:
@@ -181,12 +186,7 @@ def main(argv):
     in_layer = opened_workspace.GetLayerByName(POINTS)
 
     #
-    out_layer = create_new_layer(opened_workspace, OUTPUT, ogr.wkbPolygon)
-
-    #
-    add_spatial_reference_to_layer(workspace,
-                                   out_layer.GetName(),
-                                   out_spatial_ref)
+    out_layer = create_new_layer(opened_workspace, OUTPUT, ogr.wkbPolygon, out_spatial_ref)
 
     #
     copy_fields(in_layer, out_layer)
