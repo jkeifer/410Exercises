@@ -41,7 +41,7 @@ and a raster dataset.
 You can run the script to see what the input
 and output look like to ascertain the code's specific operations.
 When calling the script, you will need to provide the path to
-the data folder (not the shapefile) as an argument to the script.
+the data folder (not a data source) as an argument to the script.
 
 
 **Submissions and Points**
