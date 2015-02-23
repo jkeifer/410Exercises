@@ -48,10 +48,10 @@ the data folder (not a data source) as an argument to the script.
 
 All that need be submitted for this exercise is a .py file with the
 commented and code. Please email it to the instructor,
-attaching the file named as `LastnameFirstname_Exercise1.py`, with
+attaching the file named as `LastnameFirstname_Exercise4.py`, with
 your last name and first name.
 
-This exercise is worth a total of 30 points. Points will be given
+This exercise is worth a total of 32 points. Points will be given
 based on the quality/thoroughness of comments and the answers to the
 included questions.
 Keep in mind the point of this assignment is to test your code
