@@ -300,17 +300,17 @@ def get_pixel_coords_from_geographic_coords(raster,
     #
     top = raster_geotransform[3]
     #
-    right = raster_cols * raster_geotransform[1] + raster_geotransform[0]
+    right = (raster_cols * raster_geotransform[1]) + raster_geotransform[0]
     #
-    bottom = raster_rows * raster_geotransform[5] + raster_geotransform[3]
+    bottom = (raster_rows * raster_geotransform[5]) + raster_geotransform[3]
 
     #
     pxcoords = []
     for coords in list_point_xys:
         #
-        col = int(round_function(raster_cols * (coords[0] - left) / (right - left)))
+        col = int(round_function(raster_cols * float(coords[0]-left) / (right-left)))
         #
-        row = int(round_function(raster_rows * (coords[1] - top) / (bottom - top)))
+        row = int(round_function(raster_rows * float(coords[1]-top) / (bottom-top)))
         #
         pxcoords.append((row, col))
 
