@@ -1,5 +1,5 @@
-Exercise 3: Vector Operations in OGR
-====================================
+Exercise 4: Raster Analysis in GDAL
+===================================
 for GEOG 410/510 winter term 2015
 
 
