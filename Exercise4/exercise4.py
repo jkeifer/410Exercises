@@ -40,7 +40,7 @@ import numpy
 import argparse
 from osgeo import ogr
 from osgeo import gdal
-from osgeo.gdalconst import GA_ReadOnly
+from osgeo.gdalconst import GA_ReadOnly, GA_Update
 
 
 # ********** GLOBAL CONSTANTS **********
@@ -95,7 +95,7 @@ def open_raster(infilepath, readonly=True):
         raster = gdal.Open(infilepath, GA_ReadOnly)
     #
     elif readonly is False:
-        raster = gdal.Open(infilepath)
+        raster = gdal.Open(infilepath, GA_Update)
     #
     else:
         raise Exception("Error: the read status could not be be determined.")
