@@ -333,9 +333,9 @@ def change_geotransform(originaltransform, x_px_offset, y_px_offset):
     newtransform = list(originaltransform)
 
     #
-    newtransform[0] += newtransform[1] * y_px_offset
+    newtransform[0] += newtransform[1] * x_px_offset
     #
-    newtransform[3] += newtransform[5] * x_px_offset
+    newtransform[3] += newtransform[5] * y_px_offset
 
     #
     return tuple(newtransform)
@@ -347,8 +347,8 @@ def blank_raster_copy_to_extent(inraster, outraster, corner_px_coords,
     """
     #
     newgeotransform = change_geotransform(inraster.GetGeoTransform(),
-                                          corner_px_coords[3][0],
-                                          corner_px_coords[3][1])
+                                          corner_px_coords[3][1],
+                                          corner_px_coords[3][0])
 
     #
     outds = blank_raster_from_existing_raster(inraster,
